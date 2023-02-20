@@ -1,18 +1,23 @@
 //your code here
 var btn= document.getElementById("btn");
 var numPtag = document.getElementById("num");
+var res = document.getElementById("respond");
 var inputValue = document.getElementById("guess").value;
-var diff = Number(inputValue) - Number(numPtag.value);
-
-if(Mtah.abs(diff) <= 5){
-	res.textContent="Hot";
+function randomNum() {
+	no = Math.floor(Math.random()*40 -20);
+	document.getElementById("num").innerText = no;
+	guessNum();
+	print();
 }
-else{
-	res.textContent="Cold"
+function guessNum() {
+	input = Number(document.getElementById("guess").value);
 }
-function randomNum(){
-	var  no = Math.floor(Math.random()*40 -20);
-	numPtag.textContent = no;
-	
+function print() {
+	if(Math.abs(no-input) <=5){
+		document.getElementById("respond").innerText="Hot";
+	}
+	else{
+		document.getElementById("respond").innerText="Cold";
+	}
 }
-btn.addEventListener("click", randomNum);
+btn.addEventListener("click" , randomNum);
